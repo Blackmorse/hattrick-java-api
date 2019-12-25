@@ -1,5 +1,7 @@
-package com.blackmorse.hattrick.api;
+package com.blackmorse.hattrick;
 
+import com.blackmorse.hattrick.api.nationalteams.NationalTeamsExecutor;
+import com.blackmorse.hattrick.api.teamdetails.TeamDetailsExecutor;
 import com.blackmorse.hattrick.scribe.ScribeHattrickApi;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.SignatureType;
@@ -23,7 +25,11 @@ public class HattrickApiExecutor {
             .build();
     }
 
-    public TeamDetails teamDetails() {
-        return new TeamDetails(oAuthService, accessToken);
+    public TeamDetailsExecutor teamDetails() {
+        return new TeamDetailsExecutor(oAuthService, accessToken);
+    }
+
+    public NationalTeamsExecutor nationalTeams() {
+        return new NationalTeamsExecutor(oAuthService, accessToken);
     }
 }

@@ -1,4 +1,4 @@
-package com.blackmorse.hattrick.api.nationalteams;
+package com.blackmorse.hattrick.api.nationalteams.model;
 
 import com.blackmorse.hattrick.api.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,22 +10,14 @@ import java.util.List;
 @JacksonXmlRootElement
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NationalTeams extends Model {
-    @JacksonXmlProperty(localName = "userID")
-    private Long userID;
     @JacksonXmlProperty(localName = "NationalTeams")
     private List<NationalTeam> nationalTeams;
 
-    public Long getUserID() {
-        return userID;
+    public List<NationalTeam> getNationalTeams() {
+        return nationalTeams;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
-    }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class NationalTeam {
-        @JacksonXmlProperty(localName = "NationalTeamID")
-        private Integer nationalTeamId;
+    public void setNationalTeams(List<NationalTeam> nationalTeams) {
+        this.nationalTeams = nationalTeams;
     }
 }

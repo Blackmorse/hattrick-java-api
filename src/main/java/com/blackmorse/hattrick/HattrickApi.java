@@ -1,6 +1,9 @@
 package com.blackmorse.hattrick;
 
+import com.blackmorse.hattrick.api.leaguedetails.LeagueDetailsExecutor;
+import com.blackmorse.hattrick.api.nationalteamdetails.NationalTeamDetailsExecutor;
 import com.blackmorse.hattrick.api.nationalteams.NationalTeamsExecutor;
+import com.blackmorse.hattrick.api.search.SearchExecutor;
 import com.blackmorse.hattrick.api.teamdetails.TeamDetailsExecutor;
 import com.blackmorse.hattrick.scribe.ScribeHattrickApi;
 import org.scribe.builder.ServiceBuilder;
@@ -8,13 +11,13 @@ import org.scribe.model.SignatureType;
 import org.scribe.model.Token;
 import org.scribe.oauth.OAuthService;
 
-public class HattrickApiExecutor {
+public class HattrickApi {
     private final Token accessToken;
 
     private final OAuthService oAuthService;
 
-    public HattrickApiExecutor(String customerKey, String customerSecret,
-                               String accessToken, String accessTokenSecret) {
+    public HattrickApi(String customerKey, String customerSecret,
+                       String accessToken, String accessTokenSecret) {
         this.accessToken = new Token(accessToken, accessTokenSecret);
 
         this.oAuthService = new ServiceBuilder()
@@ -31,5 +34,17 @@ public class HattrickApiExecutor {
 
     public NationalTeamsExecutor nationalTeams() {
         return new NationalTeamsExecutor(oAuthService, accessToken);
+    }
+
+    public NationalTeamDetailsExecutor nationalTeamDetails() {
+        return new NationalTeamDetailsExecutor(oAuthService, accessToken);
+    }
+
+    public SearchExecutor search() {
+        return new SearchExecutor(oAuthService, accessToken);
+    }
+
+    public LeagueDetailsExecutor leagueDetails() {
+        return new LeagueDetailsExecutor(oAuthService, accessToken);
     }
 }

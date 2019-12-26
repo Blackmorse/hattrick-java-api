@@ -10,8 +10,10 @@ import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
     private static final String CHPP_URL = "https://chpp.hattrick.org/chppxml.ashx";
@@ -22,6 +24,7 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
     private final Class<V> responseClass;
 
     private final Map<String, String> parameters = new HashMap<>();
+    private final ObjectMapper objectMapper;
 
     protected ApiExecutor(OAuthService service, Token token, String file, String version, Class<V> responseClass) {
         this.service = service;
@@ -29,6 +32,9 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         this.file = file;
         this.responseClass = responseClass;
         parameters.put("version", version);
+
+        objectMapper = new XmlMapper();
+        objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }
 
     public T version(String version) {
@@ -36,27 +42,41 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         return (T) this;
     }
 
-    protected void addParameter(String name, boolean value) {
+    protected T addParameter(String name, boolean value) {
         parameters.put(name, value ? "true" : "false");
+        return (T) this;
     }
 
-    protected void addParameter(String name, int value) {
+    protected T addParameter(String name, int value) {
         parameters.put(name, String.valueOf(value));
+        return (T) this;
+    }
+
+    protected T addParameter(String name, String value) {
+        parameters.put(name, value);
+        return (T) this;
     }
 
     public V execute() {
-        OAuthRequest request = new OAuthRequest(Verb.GET, CHPP_URL + "?file=" + file);
+        String params = parameters.entrySet()
+                .stream()
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.joining("&"));
+
+        OAuthRequest request = new OAuthRequest(Verb.GET, CHPP_URL + "?file=" + file + "&" + params);
 
         service.signRequest(token, request);
 
         Response response = request.send();
-
-        ObjectMapper objectMapper = new XmlMapper();
-
+        String responseBody = preprocessBody(response.getBody());
         try {
-            return objectMapper.readValue(response.getBody(), responseClass);
+            return objectMapper.readValue(responseBody, responseClass);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    protected String preprocessBody(String body) {
+        return body;
     }
 }

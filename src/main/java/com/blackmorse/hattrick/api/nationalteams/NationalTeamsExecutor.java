@@ -1,6 +1,7 @@
 package com.blackmorse.hattrick.api.nationalteams;
 
 import com.blackmorse.hattrick.ApiExecutor;
+import com.blackmorse.hattrick.api.nationalteams.model.NationalTeams;
 import org.scribe.model.Token;
 import org.scribe.oauth.OAuthService;
 

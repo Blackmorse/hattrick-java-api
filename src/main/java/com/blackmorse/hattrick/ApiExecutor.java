@@ -1,6 +1,6 @@
 package com.blackmorse.hattrick;
 
-import com.blackmorse.hattrick.api.Model;
+import com.blackmorse.hattrick.model.Model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -11,6 +11,7 @@ import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,6 +26,8 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
 
     private final Map<String, String> parameters = new HashMap<>();
     private final ObjectMapper objectMapper;
+
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     protected ApiExecutor(OAuthService service, Token token, String file, String version, Class<V> responseClass) {
         this.service = service;
@@ -54,6 +57,11 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
 
     protected T addParameter(String name, String value) {
         parameters.put(name, value);
+        return (T) this;
+    }
+
+    protected T addParameter(String name, Date date) {
+        parameters.put(name, dateFormat.format(date));
         return (T) this;
     }
 

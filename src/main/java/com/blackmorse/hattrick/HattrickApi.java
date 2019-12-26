@@ -1,6 +1,7 @@
 package com.blackmorse.hattrick;
 
 import com.blackmorse.hattrick.api.leaguedetails.LeagueDetailsExecutor;
+import com.blackmorse.hattrick.api.matches.MatchesExecutor;
 import com.blackmorse.hattrick.api.nationalteamdetails.NationalTeamDetailsExecutor;
 import com.blackmorse.hattrick.api.nationalteams.NationalTeamsExecutor;
 import com.blackmorse.hattrick.api.search.SearchExecutor;
@@ -46,5 +47,9 @@ public class HattrickApi {
 
     public LeagueDetailsExecutor leagueDetails() {
         return new LeagueDetailsExecutor(oAuthService, accessToken);
+    }
+
+    public MatchesExecutor matches() {
+        return new MatchesExecutor(oAuthService, accessToken);
     }
 }

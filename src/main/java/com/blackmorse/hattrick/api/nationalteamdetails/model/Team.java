@@ -1,5 +1,6 @@
 package com.blackmorse.hattrick.api.nationalteamdetails.model;
 
+import com.blackmorse.hattrick.model.common.League;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 

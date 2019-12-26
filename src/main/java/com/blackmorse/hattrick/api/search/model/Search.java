@@ -1,6 +1,6 @@
 package com.blackmorse.hattrick.api.search.model;
 
-import com.blackmorse.hattrick.api.Model;
+import com.blackmorse.hattrick.model.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;

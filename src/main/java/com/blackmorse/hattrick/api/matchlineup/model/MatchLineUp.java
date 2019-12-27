@@ -1,5 +1,7 @@
 package com.blackmorse.hattrick.api.matchlineup.model;
 
+import com.blackmorse.hattrick.model.AwayTeam;
+import com.blackmorse.hattrick.model.HomeTeam;
 import com.blackmorse.hattrick.model.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

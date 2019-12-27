@@ -1,4 +1,4 @@
-package com.blackmorse.hattrick.api.matchlineup.model;
+package com.blackmorse.hattrick.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

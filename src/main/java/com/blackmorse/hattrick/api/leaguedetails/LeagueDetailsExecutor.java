@@ -24,7 +24,7 @@ public class LeagueDetailsExecutor extends ApiExecutor<LeagueDetailsExecutor, Le
         }
     }
 
-    public LeagueDetailsExecutor leagueLevelUnitId(int id) {
+    public LeagueDetailsExecutor leagueLevelUnitId(long id) {
         return addParameter("leagueLevelUnitID", id);
     }
 }

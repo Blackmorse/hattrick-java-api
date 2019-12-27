@@ -10,5 +10,7 @@ public class MatchDetailsExecutor extends ApiExecutor<MatchDetailsExecutor, Matc
         super(service, token, "matchdetails", "3.0", MatchDetails.class);
     }
 
-
+    public MatchDetailsExecutor matchId(Long id) {
+        return addParameter("matchID", id);
+    }
 }

@@ -50,6 +50,11 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         return (T) this;
     }
 
+    protected T addParameter(String name, Long value) {
+        parameters.put(name, String.valueOf(value));
+        return (T) this;
+    }
+
     protected T addParameter(String name, int value) {
         parameters.put(name, String.valueOf(value));
         return (T) this;

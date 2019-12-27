@@ -1,7 +1,8 @@
 package com.blackmorse.hattrick.api.matchesarchive.model;
 
-import com.blackmorse.hattrick.model.AwayTeam;
-import com.blackmorse.hattrick.model.HomeTeam;
+import com.blackmorse.hattrick.model.common.AwayTeam;
+import com.blackmorse.hattrick.model.common.HomeTeam;
+import com.blackmorse.hattrick.model.enums.MatchType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -18,7 +19,7 @@ public class Match {
     @JacksonXmlProperty(localName = "MatchDate")
     private Date matchDate;
     @JacksonXmlProperty(localName = "MatchType")
-    private Integer matchType;
+    private MatchType matchType;
     @JacksonXmlProperty(localName = "MatchContextId")
     private Integer matchContextId;
     @JacksonXmlProperty(localName = "MatchRuleId")
@@ -64,11 +65,11 @@ public class Match {
         this.matchDate = matchDate;
     }
 
-    public Integer getMatchType() {
+    public MatchType getMatchType() {
         return matchType;
     }
 
-    public void setMatchType(Integer matchType) {
+    public void setMatchType(MatchType matchType) {
         this.matchType = matchType;
     }
 

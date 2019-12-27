@@ -1,8 +1,9 @@
 package com.blackmorse.hattrick.api.matchlineup.model;
 
-import com.blackmorse.hattrick.model.AwayTeam;
-import com.blackmorse.hattrick.model.HomeTeam;
+import com.blackmorse.hattrick.model.common.AwayTeam;
+import com.blackmorse.hattrick.model.common.HomeTeam;
 import com.blackmorse.hattrick.model.Model;
+import com.blackmorse.hattrick.model.enums.MatchType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -19,7 +20,7 @@ public class MatchLineUp extends Model {
     @JacksonXmlProperty(localName = "AwayTeam")
     private AwayTeam awayTeam;
     @JacksonXmlProperty(localName = "MatchType")
-    private Integer matchType;
+    private MatchType matchType;
     @JacksonXmlProperty(localName = "Team")
     private Team team;
 
@@ -55,11 +56,11 @@ public class MatchLineUp extends Model {
         this.awayTeam = awayTeam;
     }
 
-    public Integer getMatchType() {
+    public MatchType getMatchType() {
         return matchType;
     }
 
-    public void setMatchType(Integer matchType) {
+    public void setMatchType(MatchType matchType) {
         this.matchType = matchType;
     }
 

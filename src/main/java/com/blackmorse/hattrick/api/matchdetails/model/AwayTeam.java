@@ -4,11 +4,35 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AwayTeam {
+public class AwayTeam extends HomeAwayTeam {
     @JacksonXmlProperty(localName = "AwayTeamID")
     private Long awayTeamId;
     @JacksonXmlProperty(localName = "AwayTeamName")
     private String awayTeamName;
     @JacksonXmlProperty(localName = "AwayGoals")
     private Integer awayGoals;
+
+    public Long getAwayTeamId() {
+        return awayTeamId;
+    }
+
+    public void setAwayTeamId(Long awayTeamId) {
+        this.awayTeamId = awayTeamId;
+    }
+
+    public String getAwayTeamName() {
+        return awayTeamName;
+    }
+
+    public void setAwayTeamName(String awayTeamName) {
+        this.awayTeamName = awayTeamName;
+    }
+
+    public Integer getAwayGoals() {
+        return awayGoals;
+    }
+
+    public void setAwayGoals(Integer awayGoals) {
+        this.awayGoals = awayGoals;
+    }
 }

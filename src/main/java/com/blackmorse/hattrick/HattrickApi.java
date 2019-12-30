@@ -9,6 +9,7 @@ import com.blackmorse.hattrick.api.nationalteamdetails.NationalTeamDetailsExecut
 import com.blackmorse.hattrick.api.nationalteams.NationalTeamsExecutor;
 import com.blackmorse.hattrick.api.search.SearchExecutor;
 import com.blackmorse.hattrick.api.teamdetails.TeamDetailsExecutor;
+import com.blackmorse.hattrick.api.worlddetails.WorldDetailsExecutor;
 import com.blackmorse.hattrick.scribe.ScribeHattrickApi;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.SignatureType;
@@ -66,5 +67,9 @@ public class HattrickApi {
 
     public MatchesArchiveExecutor matchesArchive() {
         return new MatchesArchiveExecutor(oAuthService, accessToken);
+    }
+
+    public WorldDetailsExecutor worldDetails() {
+        return new WorldDetailsExecutor(oAuthService, accessToken);
     }
 }

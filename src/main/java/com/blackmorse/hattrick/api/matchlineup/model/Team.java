@@ -17,6 +17,8 @@ public class Team {
     private Integer styleOfPlay;
     @JacksonXmlProperty(localName = "StartingLineup")
     private List<StartingLineUpPlayer> startingLineUp;
+    @JacksonXmlProperty(localName = "Substitutions")
+    private List<Substitution> substitutions;
     @JacksonXmlProperty(localName = "Lineup")
     private List<LineUpPlayer> lineUp;
 
@@ -67,4 +69,13 @@ public class Team {
     public void setLineUp(List<LineUpPlayer> lineUp) {
         this.lineUp = lineUp;
     }
+
+    public List<Substitution> getSubstitutions() {
+        return substitutions;
+    }
+
+    public void setSubstitutions(List<Substitution> substitutions) {
+        this.substitutions = substitutions;
+    }
+
 }

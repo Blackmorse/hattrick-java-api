@@ -1,12 +1,13 @@
 package com.blackmorse.hattrick.api.matchlineup.model;
 
+import com.blackmorse.hattrick.model.enums.MatchRoleId;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 abstract public class Player {
     @JacksonXmlProperty(localName = "PlayerID")
     private Long playerId;
     @JacksonXmlProperty(localName = "RoleID")
-    private Integer roleId;
+    private MatchRoleId roleId;
     @JacksonXmlProperty(localName = "FirstName")
     private String firstName;
     @JacksonXmlProperty(localName = "LastName")
@@ -14,20 +15,20 @@ abstract public class Player {
     @JacksonXmlProperty(localName = "NickName")
     private String nickName;
 
+    public MatchRoleId getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(MatchRoleId roleId) {
+        this.roleId = roleId;
+    }
+
     public Long getPlayerId() {
         return playerId;
     }
 
     public void setPlayerId(Long playerId) {
         this.playerId = playerId;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
     }
 
     public String getFirstName() {

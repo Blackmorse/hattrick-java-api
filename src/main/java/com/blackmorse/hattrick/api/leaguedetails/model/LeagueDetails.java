@@ -19,7 +19,7 @@ public class LeagueDetails extends Model {
     @JacksonXmlProperty(localName = "MaxLevel")
     private Integer maxLevel;
     @JacksonXmlProperty(localName = "LeagueLevelUnitID")
-    private Integer leagueLevelUnitId;
+    private Long leagueLevelUnitId;
     @JacksonXmlProperty(localName = "LeagueLevelUnitName")
     private String leagueLevelUnitName;
     @JacksonXmlProperty(localName = "CurrentMatchRound")
@@ -59,11 +59,11 @@ public class LeagueDetails extends Model {
         this.maxLevel = maxLevel;
     }
 
-    public Integer getLeagueLevelUnitId() {
+    public Long getLeagueLevelUnitId() {
         return leagueLevelUnitId;
     }
 
-    public void setLeagueLevelUnitId(Integer leagueLevelUnitId) {
+    public void setLeagueLevelUnitId(Long leagueLevelUnitId) {
         this.leagueLevelUnitId = leagueLevelUnitId;
     }
 

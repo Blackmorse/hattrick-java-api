@@ -6,15 +6,15 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AwayTeam {
     @JacksonXmlProperty(localName = "AwayTeamID")
-    private Integer awayTeamId;
+    private Long awayTeamId;
     @JacksonXmlProperty(localName = "AwayTeamName")
     private String awayTeamName;
 
-    public Integer getAwayTeamId() {
+    public Long getAwayTeamId() {
         return awayTeamId;
     }
 
-    public void setAwayTeamId(Integer awayTeamId) {
+    public void setAwayTeamId(Long awayTeamId) {
         this.awayTeamId = awayTeamId;
     }
 

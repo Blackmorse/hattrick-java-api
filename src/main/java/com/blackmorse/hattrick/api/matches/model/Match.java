@@ -1,5 +1,6 @@
 package com.blackmorse.hattrick.api.matches.model;
 
+import com.blackmorse.hattrick.model.enums.MatchType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -18,7 +19,7 @@ public class Match {
     @JacksonXmlProperty(localName = "SourceSystem")
     private String sourceSystem;
     @JacksonXmlProperty(localName = "MatchType")
-    private Integer matchType;
+    private MatchType matchType;
     @JacksonXmlProperty(localName = "MatchContextId")
     private Integer matchContextId;
     @JacksonXmlProperty(localName = "CupLevel")
@@ -72,11 +73,11 @@ public class Match {
         this.sourceSystem = sourceSystem;
     }
 
-    public Integer getMatchType() {
+    public MatchType getMatchType() {
         return matchType;
     }
 
-    public void setMatchType(Integer matchType) {
+    public void setMatchType(MatchType matchType) {
         this.matchType = matchType;
     }
 

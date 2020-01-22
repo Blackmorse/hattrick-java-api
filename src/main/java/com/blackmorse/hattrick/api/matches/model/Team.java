@@ -20,4 +20,52 @@ public class Team {
     private LeagueLevelUnit leagueLevelUnit;
     @JacksonXmlProperty(localName = "MatchList")
     private List<Match> matchList;
+
+    public Long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String getShortTeamName() {
+        return shortTeamName;
+    }
+
+    public void setShortTeamName(String shortTeamName) {
+        this.shortTeamName = shortTeamName;
+    }
+
+    public League getLeague() {
+        return league;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
+    }
+
+    public LeagueLevelUnit getLeagueLevelUnit() {
+        return leagueLevelUnit;
+    }
+
+    public void setLeagueLevelUnit(LeagueLevelUnit leagueLevelUnit) {
+        this.leagueLevelUnit = leagueLevelUnit;
+    }
+
+    public List<Match> getMatchList() {
+        return matchList;
+    }
+
+    public void setMatchList(List<Match> matchList) {
+        this.matchList = matchList;
+    }
 }

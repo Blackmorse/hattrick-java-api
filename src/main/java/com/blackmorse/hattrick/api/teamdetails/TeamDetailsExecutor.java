@@ -10,12 +10,12 @@ public class TeamDetailsExecutor extends ApiExecutor<TeamDetailsExecutor, TeamDe
         super(service, token, "teamdetails", "3.4", TeamDetails.class);
     }
 
-    public TeamDetailsExecutor teamID(int id) {
+    public TeamDetailsExecutor teamID(long id) {
         addParameter("teamID", id);
         return this;
     }
 
-    public TeamDetailsExecutor userID(int id) {
+    public TeamDetailsExecutor userID(long id) {
         addParameter("userID", id);
         return this;
     }

@@ -5,10 +5,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.Date;
 
+//TODO not completed!
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Team {
     @JacksonXmlProperty(localName = "TeamID")
-    private Integer teamId;
+    private Long teamId;
     @JacksonXmlProperty(localName = "TeamName")
     private String teamName;
     @JacksonXmlProperty(localName = "ShortTeamName")
@@ -17,12 +18,16 @@ public class Team {
     private Boolean isPrimaryClub;
     @JacksonXmlProperty(localName = "FoundedDate")
     private Date foundedDate;
+    @JacksonXmlProperty(localName = "League")
+    private League league;
+    @JacksonXmlProperty(localName = "LeagueLevelUnit")
+    private LeagueLevelUnit leagueLevelUnit;
 
-    public Integer getTeamId() {
+    public Long getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(Integer teamId) {
+    public void setTeamId(Long teamId) {
         this.teamId = teamId;
     }
 
@@ -56,5 +61,21 @@ public class Team {
 
     public void setFoundedDate(Date foundedDate) {
         this.foundedDate = foundedDate;
+    }
+
+    public League getLeague() {
+        return league;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
+    }
+
+    public LeagueLevelUnit getLeagueLevelUnit() {
+        return leagueLevelUnit;
+    }
+
+    public void setLeagueLevelUnit(LeagueLevelUnit leagueLevelUnit) {
+        this.leagueLevelUnit = leagueLevelUnit;
     }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.Date;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
@@ -27,8 +28,9 @@ public class User {
     private Date lastLoginDate;
     @JacksonXmlProperty(localName = "HasManagerLicese")
     private Boolean hasManagerLicese;
+
     @JacksonXmlProperty(localName = "NationalTeamCoach")
-    private Boolean nationalTeamCoach;
+    private List<NationalTeam> nationalTeamCoach;
 
     public Long getUserId() {
         return userId;
@@ -110,11 +112,11 @@ public class User {
         this.hasManagerLicese = hasManagerLicese;
     }
 
-    public Boolean getNationalTeamCoach() {
+    public List<NationalTeam> getNationalTeamCoach() {
         return nationalTeamCoach;
     }
 
-    public void setNationalTeamCoach(Boolean nationalTeamCoach) {
+    public void setNationalTeamCoach(List<NationalTeam> nationalTeamCoach) {
         this.nationalTeamCoach = nationalTeamCoach;
     }
 }

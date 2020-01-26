@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.util.Date;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Match {
@@ -30,6 +31,12 @@ public class Match {
     private HomeTeam homeTeam;
     @JacksonXmlProperty(localName = "AwayTeam")
     private AwayTeam awayTeam;
+    @JacksonXmlProperty(localName = "Scorers")
+    private List<Goal> scorers;
+    @JacksonXmlProperty(localName = "Bookings")
+    private List<Booking> bookings;
+    @JacksonXmlProperty(localName = "Injuries")
+    private List<Injury> injuries;
 
     public Long getMatchId() {
         return matchId;
@@ -117,5 +124,29 @@ public class Match {
 
     public void setAwayTeam(AwayTeam awayTeam) {
         this.awayTeam = awayTeam;
+    }
+
+    public List<Goal> getScorers() {
+        return scorers;
+    }
+
+    public void setScorers(List<Goal> scorers) {
+        this.scorers = scorers;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public List<Injury> getInjuries() {
+        return injuries;
+    }
+
+    public void setInjuries(List<Injury> injuries) {
+        this.injuries = injuries;
     }
 }

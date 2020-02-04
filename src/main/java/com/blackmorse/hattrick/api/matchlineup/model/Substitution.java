@@ -1,6 +1,7 @@
 package com.blackmorse.hattrick.api.matchlineup.model;
 
 import com.blackmorse.hattrick.model.enums.MatchOrderTypeId;
+import com.blackmorse.hattrick.model.enums.MatchRoleId;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -15,7 +16,7 @@ public class Substitution {
     @JacksonXmlProperty(localName = "OrderType")
     private MatchOrderTypeId orderType;
     @JacksonXmlProperty(localName = "NewPositionId")
-    private Integer newPositionId;
+    private MatchRoleId newPositionId;
     @JacksonXmlProperty(localName = "NewPositionBehaviour")
     private Integer newPositionBehaviour;
     @JacksonXmlProperty(localName = "MatchMinute")
@@ -55,11 +56,11 @@ public class Substitution {
         this.orderType = orderType;
     }
 
-    public Integer getNewPositionId() {
+    public MatchRoleId getNewPositionId() {
         return newPositionId;
     }
 
-    public void setNewPositionId(Integer newPositionId) {
+    public void setNewPositionId(MatchRoleId newPositionId) {
         this.newPositionId = newPositionId;
     }
 

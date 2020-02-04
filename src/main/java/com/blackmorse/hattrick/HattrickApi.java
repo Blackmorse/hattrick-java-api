@@ -8,6 +8,7 @@ import com.blackmorse.hattrick.api.matchesarchive.MatchesArchiveExecutor;
 import com.blackmorse.hattrick.api.matchlineup.MatchLineUpExecutor;
 import com.blackmorse.hattrick.api.nationalteamdetails.NationalTeamDetailsExecutor;
 import com.blackmorse.hattrick.api.nationalteams.NationalTeamsExecutor;
+import com.blackmorse.hattrick.api.players.PlayersExecutor;
 import com.blackmorse.hattrick.api.search.SearchExecutor;
 import com.blackmorse.hattrick.api.teamdetails.TeamDetailsExecutor;
 import com.blackmorse.hattrick.api.worlddetails.WorldDetailsExecutor;
@@ -73,7 +74,12 @@ public class HattrickApi {
     public WorldDetailsExecutor worldDetails() {
         return new WorldDetailsExecutor(oAuthService, accessToken);
     }
-     public LeagueFixturesExecutor leagueFixtures() {
+
+    public LeagueFixturesExecutor leagueFixtures() {
         return new LeagueFixturesExecutor(oAuthService, accessToken);
-     }
+    }
+
+    public PlayersExecutor players() {
+        return new PlayersExecutor(oAuthService, accessToken);
+    }
 }

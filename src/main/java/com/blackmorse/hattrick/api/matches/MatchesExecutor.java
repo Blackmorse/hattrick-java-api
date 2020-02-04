@@ -12,7 +12,7 @@ public class MatchesExecutor extends ApiExecutor<MatchesExecutor, Matches> {
         super(service, token, "matches", "2.8", Matches.class);
     }
 
-    public MatchesExecutor teamId(int id) {
+    public MatchesExecutor teamId(long id) {
         return addParameter("teamID", id);
     }
 

@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
@@ -44,7 +45,9 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         parameters.put("version", version);
 
         objectMapper = new XmlMapper();
-        objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("CET"));
+        objectMapper.setDateFormat(dateFormat);
     }
 
     public T version(String version) {

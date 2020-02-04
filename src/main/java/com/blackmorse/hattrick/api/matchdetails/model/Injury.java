@@ -1,5 +1,6 @@
 package com.blackmorse.hattrick.api.matchdetails.model;
 
+import com.blackmorse.hattrick.model.enums.InjuryType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -12,7 +13,7 @@ public class Injury {
     @JacksonXmlProperty(localName = "InjuryTeamID")
     private Long injuryTeamId;
     @JacksonXmlProperty(localName = "InjuryType")
-    private Integer injuryType;
+    private InjuryType injuryType;
     @JacksonXmlProperty(localName = "InjuryMinute")
     private Integer injuryMinute;
     @JacksonXmlProperty(localName = "MatchPart")
@@ -42,11 +43,11 @@ public class Injury {
         this.injuryTeamId = injuryTeamId;
     }
 
-    public Integer getInjuryType() {
+    public InjuryType getInjuryType() {
         return injuryType;
     }
 
-    public void setInjuryType(Integer injuryType) {
+    public void setInjuryType(InjuryType injuryType) {
         this.injuryType = injuryType;
     }
 

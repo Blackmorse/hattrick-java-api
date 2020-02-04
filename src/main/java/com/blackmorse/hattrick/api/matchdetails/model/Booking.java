@@ -1,5 +1,6 @@
 package com.blackmorse.hattrick.api.matchdetails.model;
 
+import com.blackmorse.hattrick.model.enums.BookingType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -12,7 +13,7 @@ public class Booking {
     @JacksonXmlProperty(localName = "BookingTeamID")
     private Long bookingTeamId;
     @JacksonXmlProperty(localName = "BookingType")
-    private Integer bookingType;
+    private BookingType bookingType;
     @JacksonXmlProperty(localName = "BookingMinute")
     private Integer bookingMinute;
     @JacksonXmlProperty(localName = "MatchPart")
@@ -42,11 +43,11 @@ public class Booking {
         this.bookingTeamId = bookingTeamId;
     }
 
-    public Integer getBookingType() {
+    public BookingType getBookingType() {
         return bookingType;
     }
 
-    public void setBookingType(Integer bookingType) {
+    public void setBookingType(BookingType bookingType) {
         this.bookingType = bookingType;
     }
 

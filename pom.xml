@@ -6,7 +6,7 @@
 
   <groupId>com.blackmorse.hattrick</groupId>
   <artifactId>api</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
 
   <name>hattrick-java-api</name>
 
@@ -22,6 +22,11 @@
       <artifactId>scribe</artifactId>
       <version>1.3.0</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.apache.httpcomponents</groupId>-->
+<!--      <artifactId>httpclient</artifactId>-->
+<!--      <version>4.5.10</version>-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>com.fasterxml.jackson.dataformat</groupId>

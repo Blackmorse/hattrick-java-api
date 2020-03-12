@@ -1,6 +1,8 @@
 package com.blackmorse.hattrick.api.worlddetails.model;
 
+import com.blackmorse.hattrick.common.DoubleDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -11,10 +13,11 @@ public class Country {
     private String countryName;
     @JacksonXmlProperty(localName = "CurrencyName")
     private String currencyName;
+    @JsonDeserialize(using = DoubleDeserializer.class)
     @JacksonXmlProperty(localName = "CurrencyRate")
-    private String currencyRate;
-    @JacksonXmlProperty(localName = "CurrencyCode")
-    private String currencyCode;
+    private Double currencyRate;
+    @JacksonXmlProperty(localName = "CountryCode")
+    private String countryCode;
     @JacksonXmlProperty(localName = "DateFormat")
     private String dateFormat;
     @JacksonXmlProperty(localName = "TimeFormat")
@@ -44,20 +47,20 @@ public class Country {
         this.currencyName = currencyName;
     }
 
-    public String getCurrencyRate() {
+    public Double getCurrencyRate() {
         return currencyRate;
     }
 
-    public void setCurrencyRate(String currencyRate) {
+    public void setCurrencyRate(Double currencyRate) {
         this.currencyRate = currencyRate;
     }
 
-    public String getCurrencyCode() {
-        return currencyCode;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getDateFormat() {

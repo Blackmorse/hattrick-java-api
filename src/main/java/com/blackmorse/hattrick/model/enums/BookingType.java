@@ -2,7 +2,7 @@ package com.blackmorse.hattrick.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum BookingType {
+public enum BookingType implements HattrickType {
     YELLOW_CARD(1),
     RED_CARD(2);
 
@@ -13,6 +13,7 @@ public enum BookingType {
     }
 
     @JsonValue
+    @Override
     public int getValue() {
         return value;
     }

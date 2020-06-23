@@ -2,7 +2,7 @@ package com.blackmorse.hattrick.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MatchRoleId {
+public enum MatchRoleId implements HattrickType {
 	Keeper(100),
 	RIGHT_BACK(101),
 	RIGHT_CENTRAL_DEFENDER(102),

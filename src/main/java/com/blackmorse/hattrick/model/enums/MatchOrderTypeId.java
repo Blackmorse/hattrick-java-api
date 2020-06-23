@@ -2,7 +2,7 @@ package com.blackmorse.hattrick.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MatchOrderTypeId {
+public enum MatchOrderTypeId implements HattrickType {
     NORMAL_BEHAVIOUR(1),
     PLAYER_SWAP(3);
 
@@ -13,6 +13,7 @@ public enum MatchOrderTypeId {
     }
 
     @JsonValue
+    @Override
     public int getValue() {
         return value;
     }

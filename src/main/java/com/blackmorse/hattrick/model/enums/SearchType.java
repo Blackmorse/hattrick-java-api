@@ -2,13 +2,18 @@ package com.blackmorse.hattrick.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum InjuryType implements HattrickType {
-    BRUISED(1),
-    INJURY(2);
+public enum SearchType implements HattrickType {
+    PLAYERS(0),
+    ARENAS(1),
+    MANAGERS(2),
+    SERIES(3),
+    TEAMS(4),
+    REGIONS(5),
+    MATCH(6);
 
     private int value;
 
-    InjuryType(int value) {
+    SearchType(int value) {
         this.value = value;
     }
 
@@ -16,6 +21,5 @@ public enum InjuryType implements HattrickType {
     @Override
     public int getValue() {
         return value;
-
     }
 }

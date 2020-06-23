@@ -2,6 +2,7 @@ package com.blackmorse.hattrick.api.search;
 
 import com.blackmorse.hattrick.ApiExecutor;
 import com.blackmorse.hattrick.api.search.model.Search;
+import com.blackmorse.hattrick.model.enums.SearchType;
 import org.scribe.model.Token;
 import org.scribe.oauth.OAuthService;
 
@@ -10,7 +11,7 @@ public class SearchExecutor extends ApiExecutor<SearchExecutor, Search> {
         super(service, token, "search", "1.2", Search.class);
     }
 
-    public SearchExecutor searchType(int type) {
+    public SearchExecutor searchType(SearchType type) {
         return addParameter("searchType", type);
     }
 

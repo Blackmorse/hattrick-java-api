@@ -2,7 +2,7 @@ package com.blackmorse.hattrick.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MatchType {
+public enum MatchType implements HattrickType {
     LEAGUE_MATCH(1),
     QUALIFICATION_MATCH(2),
     CUP_MATCH(3),
@@ -32,6 +32,7 @@ public enum MatchType {
     }
 
     @JsonValue
+    @Override
     public int getValue() {
         return value;
     }

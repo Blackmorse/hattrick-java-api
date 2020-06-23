@@ -4,6 +4,7 @@ import com.blackmorse.hattrick.exceptions.HattrickChppException;
 import com.blackmorse.hattrick.exceptions.HattrickTransferException;
 import com.blackmorse.hattrick.model.ChppError;
 import com.blackmorse.hattrick.model.Model;
+import com.blackmorse.hattrick.model.enums.HattrickType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -15,6 +16,9 @@ import org.scribe.oauth.OAuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -71,12 +75,18 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
     }
 
     protected T addParameter(String name, String value) {
-        parameters.put(name, value);
+        Charset utf8 = StandardCharsets.UTF_8;
+        parameters.put(name, URLEncoder.encode(value, StandardCharsets.UTF_8));
         return (T) this;
     }
 
     protected T addParameter(String name, Date date) {
         parameters.put(name, dateFormat.format(date));
+        return (T) this;
+    }
+
+    protected T addParameter(String name, HattrickType value) {
+        parameters.put(name, String.valueOf(value.getValue()));
         return (T) this;
     }
 

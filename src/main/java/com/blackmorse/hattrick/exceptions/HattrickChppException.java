@@ -6,7 +6,7 @@ public class HattrickChppException extends RuntimeException {
     private final ChppError chppError;
 
     public HattrickChppException(ChppError chppError) {
-        super(chppError.getError());
+        super(chppError.toString());
         this.chppError = chppError;
     }
 

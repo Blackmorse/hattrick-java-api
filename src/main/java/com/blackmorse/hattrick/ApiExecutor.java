@@ -13,8 +13,6 @@ import org.scribe.model.Response;
 import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -27,8 +25,6 @@ import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiExecutor.class);
-
     private static final String CHPP_URL = "https://chpp.hattrick.org/chppxml.ashx";
 
     private final OAuthService service;
@@ -104,8 +100,6 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         try {
             response = request.send();
         } catch(Exception e) {
-            LOGGER.error("ChppError while processing request: {}", params);
-            LOGGER.error(e.getMessage(), e);
             throw new HattrickTransferException(e);
         }
         String responseBody = preprocessBody(response.getBody());
@@ -117,8 +111,6 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
             }
             return model;
         } catch (JsonProcessingException e) {
-            LOGGER.error("ChppError while parsing response to: {}", params);
-            LOGGER.error("Unable to parse: {}", responseBody);
             throw new HattrickTransferException(e);
         }
     }

@@ -31,6 +31,8 @@ public class Match {
     private HomeTeam homeTeam;
     @JacksonXmlProperty(localName = "AwayTeam")
     private AwayTeam awayTeam;
+    @JacksonXmlProperty(localName = "Arena")
+    private Arena arena;
     @JacksonXmlProperty(localName = "Scorers")
     private List<Goal> scorers;
     @JacksonXmlProperty(localName = "Bookings")
@@ -148,5 +150,9 @@ public class Match {
 
     public void setInjuries(List<Injury> injuries) {
         this.injuries = injuries;
+    }
+
+    public Arena getArena() {
+        return arena;
     }
 }

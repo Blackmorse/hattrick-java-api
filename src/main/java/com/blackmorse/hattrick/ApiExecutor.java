@@ -5,6 +5,8 @@ import com.blackmorse.hattrick.exceptions.HattrickTransferException;
 import com.blackmorse.hattrick.model.ChppError;
 import com.blackmorse.hattrick.model.Model;
 import com.blackmorse.hattrick.model.enums.HattrickType;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -18,10 +20,8 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
@@ -104,6 +104,9 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         }
         String responseBody = preprocessBody(response.getBody());
         try {
+            //https://github.com/FasterXML/jackson-dataformat-xml/issues/124
+            objectMapper.configOverride(List.class)
+                    .setSetterInfo(JsonSetter.Value.forValueNulls(Nulls.AS_EMPTY));
             V model = objectMapper.readValue(responseBody, responseClass);
             if(model.getFileName().equals("chpperror.xml")) {
                 ChppError chppError = objectMapper.readValue(responseBody, ChppError.class);

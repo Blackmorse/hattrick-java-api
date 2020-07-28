@@ -100,7 +100,7 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
         try {
             response = request.send();
         } catch(Exception e) {
-            throw new HattrickTransferException(e);
+            throw new HattrickTransferException(e, params);
         }
         String responseBody = preprocessBody(response.getBody());
         try {
@@ -114,7 +114,7 @@ public abstract class ApiExecutor<T extends ApiExecutor, V extends Model> {
             }
             return model;
         } catch (JsonProcessingException e) {
-            throw new HattrickTransferException(e);
+            throw new HattrickTransferException(e, params);
         }
     }
 

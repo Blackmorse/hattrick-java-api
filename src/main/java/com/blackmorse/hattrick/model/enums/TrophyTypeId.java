@@ -7,7 +7,8 @@ public enum TrophyTypeId implements HattrickType {
     SERIES_WIN(17),
     HATTRICK_MASTERS_WIN(91),
     HATTRICK_MASTERS_TOP_SCORER(93),
-    TOURNAMENT_WINNER(103);
+    TOURNAMENT_WINNER(103),
+    STUDY_TOURNNAMENT(203);
 
     private final int value;
 

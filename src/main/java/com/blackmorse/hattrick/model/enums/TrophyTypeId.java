@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum TrophyTypeId implements HattrickType {
     CUPS_WIN(16),
     SERIES_WIN(17),
+    UNKNOWN(90),
     HATTRICK_MASTERS_WIN(91),
     HATTRICK_MASTERS_TOP_SCORER(93),
     TOURNAMENT_WINNER(103),
